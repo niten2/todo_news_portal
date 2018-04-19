@@ -1,4 +1,10 @@
 // https://facebook.github.io/jest/docs/en/configuration.html
+// import '@babel/polyfill';
+
+// var babelConfig = require('./babel.config')
+
+// module.exports = require('babel-jest').createTransformer(babelConfig)
+
 module.exports = {
   // Modules can be explicitly auto-mocked using jest.mock(moduleName).
   // https://facebook.github.io/jest/docs/en/configuration.html#automock-boolean
@@ -91,5 +97,15 @@ module.exports = {
   verbose: true, // [boolean]
 
   setupTestFrameworkScriptFile: "./test/support/index.js",
+
+  testMatch: [
+    "**/*.test.js"
+  ],
+
+  moduleDirectories: [
+    "node_modules",
+    "spec",
+    "src"
+  ],
 
 };
