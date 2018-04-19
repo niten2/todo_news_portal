@@ -1,27 +1,27 @@
-import gql from "graphql-tag"
-import { graphql } from "react-apollo"
+// import gql from "graphql-tag"
+// import { graphql } from "react-apollo"
 
-const usersQuery = gql`
-  query users($input: UsersInput) {
-    users(input: $input) {
-      id
+// const usersQuery = gql`
+//   query users($input: UsersInput) {
+//     users(input: $input) {
+//       id
 
-      email
-    }
-  }
+//       email
+//     }
+//   }
 
-`
+// `
 
-export const withData = graphql(
-  usersQuery, {
-    name: "usersQuery",
-    options: (props) => ({
-      fetchPolicy: "network-only",
-      variables: {
-        input: {
-          role: "manager",
-        }
-      }
-    })
-  }
-)
+// export const withData = graphql(
+//   usersQuery, {
+//     name: "usersQuery",
+//     options: (props) => ({
+//       fetchPolicy: "network-only",
+//       variables: {
+//         input: {
+//           role: "manager",
+//         }
+//       }
+//     })
+//   }
+// )
