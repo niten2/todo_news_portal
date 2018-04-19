@@ -89,4 +89,7 @@ module.exports = {
   // unmockedModulePathPatterns: // [array<string>]
 
   verbose: true, // [boolean]
+
+  setupTestFrameworkScriptFile: "./test/support/index.js",
+
 };

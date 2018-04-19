@@ -1,23 +1,33 @@
 import ReactDOM from 'react-dom/server';
 import ReactConroller from "../controllers/react"
+import MainConroller from "../controllers/main"
+
+// const TestConroller = require("../controllers/test.ts")
+
 // import { Express, Response, Request, NextFunction } from "express"
 // import { graphqlExpress, graphiqlExpress } from "apollo-server-express"
 // import graphqOptions from 'app/graphql/config'
 // import settings from "config/settings"
 // console.log(ReactConroller)
 
+// console.log(111)
+// console.log(222, TestConroller.index)
+// console.log(333, TestConroller)
+// console.log(111)
+
 // export default (app: Express) => {
 export default (app) => {
   // app.get("/", (req: Request, res: Response, next: NextFunction): void => {
 
-  app.get("/api", (req, res, next) => {
+  app.get("/api", MainConroller.index)
 
-    res.json({
-      // name: settings.name,
-      name: "dfsdf",
-      current_version: "/v1",
-    })
-  })
+  // app.get("/api", (req, res, next) => {
+  //   res.json({
+  //     // name: settings.name,
+  //     name: "dfsdf",
+  //     current_version: "/v1",
+  //   })
+  // })
 
   app.get('*', ReactConroller.index)
 
