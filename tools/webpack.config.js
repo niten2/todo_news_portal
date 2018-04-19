@@ -1,12 +1,3 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 import fs from 'fs';
 import path from 'path';
 import webpack from 'webpack';
@@ -23,8 +14,7 @@ const BUILD_DIR = resolvePath('build');
 
 const isDebug = !process.argv.includes('--release');
 const isVerbose = process.argv.includes('--verbose');
-const isAnalyze =
-  process.argv.includes('--analyze') || process.argv.includes('--analyse');
+const isAnalyze = process.argv.includes('--analyze') || process.argv.includes('--analyse');
 
 const reScript = /\.(js|jsx|mjs)$/;
 const reStyle = /\.(css|less|styl|scss|sass|sss)$/;
@@ -38,11 +28,8 @@ const minimizeCssOptions = {
   discardComments: { removeAll: true },
 };
 
-//
 // Common configuration chunk to be used for both
 // client-side (client.js) and server-side (server.js) bundles
-// -----------------------------------------------------------------------------
-
 const config = {
   context: ROOT_DIR,
 
@@ -62,9 +49,16 @@ const config = {
   },
 
   resolve: {
+
     // Allow absolute paths in imports, e.g. import Button from 'components/Button'
     // Keep in sync with .flowconfig and .eslintrc
     modules: ['node_modules', 'src'],
+
+    // alias: {
+    //   src: ROOT_DIR,
+    //   //   // resolvePath('build');
+    // },
+
   },
 
   module: {
@@ -108,6 +102,7 @@ const config = {
             // https://github.com/babel/babel/tree/master/packages/babel-preset-react
             ['@babel/preset-react', { development: isDebug }],
           ],
+
           plugins: [
             // Treat React JSX elements as value types and hoist them to the highest scope
             // https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-constant-elements

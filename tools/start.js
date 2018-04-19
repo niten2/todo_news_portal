@@ -1,12 +1,3 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 import path from 'path';
 import express from 'express';
 import browserSync from 'browser-sync';
@@ -14,6 +5,7 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import errorOverlayMiddleware from 'react-dev-utils/errorOverlayMiddleware';
+
 import webpackConfig from './webpack.config';
 import run, { format } from './run';
 import clean from './clean';
@@ -60,58 +52,70 @@ function createCompilationPromise(name, compiler, config) {
 
 let server;
 
-/**
- * Launches a development web server with "live reload" functionality -
- * synchronizing URLs, interactions and code changes across multiple devices.
- */
+// Launches a development web server with "live reload" functionality -
+// synchronizing URLs, interactions and code changes across multiple devices.
 async function start() {
   if (server) return server;
+
   server = express();
   server.use(errorOverlayMiddleware());
   server.use(express.static(path.resolve(__dirname, '../public')));
 
   // Configure client-side hot module replacement
   const clientConfig = webpackConfig.find(config => config.name === 'client');
+
   clientConfig.entry.client = ['./tools/lib/webpackHotDevClient']
     .concat(clientConfig.entry.client)
     .sort((a, b) => b.includes('polyfill') - a.includes('polyfill'));
+
   clientConfig.output.filename = clientConfig.output.filename.replace(
     'chunkhash',
     'hash',
   );
+
   clientConfig.output.chunkFilename = clientConfig.output.chunkFilename.replace(
     'chunkhash',
     'hash',
   );
+
   clientConfig.module.rules = clientConfig.module.rules.filter(
     x => x.loader !== 'null-loader',
   );
+
   clientConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 
   // Configure server-side hot module replacement
   const serverConfig = webpackConfig.find(config => config.name === 'server');
+
   serverConfig.output.hotUpdateMainFilename = 'updates/[hash].hot-update.json';
-  serverConfig.output.hotUpdateChunkFilename =
-    'updates/[id].[hash].hot-update.js';
+
+  serverConfig.output.hotUpdateChunkFilename = 'updates/[id].[hash].hot-update.js';
+
   serverConfig.module.rules = serverConfig.module.rules.filter(
     x => x.loader !== 'null-loader',
   );
+
   serverConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 
   // Configure compilation
   await run(clean);
+
   const multiCompiler = webpack(webpackConfig);
+
   const clientCompiler = multiCompiler.compilers.find(
     compiler => compiler.name === 'client',
   );
+
   const serverCompiler = multiCompiler.compilers.find(
     compiler => compiler.name === 'server',
   );
+
   const clientPromise = createCompilationPromise(
     'client',
     clientCompiler,
     clientConfig,
   );
+
   const serverPromise = createCompilationPromise(
     'server',
     serverCompiler,
@@ -133,14 +137,18 @@ async function start() {
   let appPromise;
   let appPromiseResolve;
   let appPromiseIsResolved = true;
+
   serverCompiler.hooks.compile.tap('server', () => {
     if (!appPromiseIsResolved) return;
+
     appPromiseIsResolved = false;
+
     // eslint-disable-next-line no-return-assign
     appPromise = new Promise(resolve => (appPromiseResolve = resolve));
   });
 
   let app;
+
   server.use((req, res) => {
     appPromise
       .then(() => app.handle(req, res))
@@ -149,12 +157,15 @@ async function start() {
 
   function checkForUpdate(fromUpdate) {
     const hmrPrefix = '[\x1b[35mHMR\x1b[0m] ';
+
     if (!app.hot) {
       throw new Error(`${hmrPrefix}Hot Module Replacement is disabled.`);
     }
+
     if (app.hot.status() !== 'idle') {
       return Promise.resolve();
     }
+
     return app.hot
       .check(true)
       .then(updatedModules => {
@@ -177,9 +188,12 @@ async function start() {
       .catch(error => {
         if (['abort', 'fail'].includes(app.hot.status())) {
           console.warn(`${hmrPrefix}Cannot apply update.`);
+
           delete require.cache[require.resolve('../build/server')];
+
           // eslint-disable-next-line global-require, import/no-unresolved
           app = require('../build/server').default;
+
           console.warn(`${hmrPrefix}App has been reloaded.`);
         } else {
           console.warn(
@@ -218,8 +232,9 @@ async function start() {
         // https://www.browsersync.io/docs/options
         server: 'src/server.js',
         middleware: [server],
-        open: !process.argv.includes('--silent'),
-        ...(isDebug ? {} : { notify: false, ui: false }),
+
+        open: !process.argv.includes('--silent'), ...(isDebug ? {} : { notify: false, ui: false }),
+        // open: false,
       },
       (error, bs) => (error ? reject(error) : resolve(bs)),
     ),
@@ -227,7 +242,9 @@ async function start() {
 
   const timeEnd = new Date();
   const time = timeEnd.getTime() - timeStart.getTime();
+
   console.info(`[${format(timeEnd)}] Server launched after ${time} ms`);
+
   return server;
 }
 
