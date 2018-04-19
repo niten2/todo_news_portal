@@ -1,19 +1,16 @@
-import config from '../../config';
-// import settings from "config/settings"
+import config from '../../config'
 import initRoutes from "./routes"
+
+// import settings from "config/settings"
 // import initMiddlewares from "../middlewares"
 // import { connectDb } from "config/initialize/mongoose"
-// import { Express } from "express"
 // import logger from "app/services/logger"
 
-// export const initApp = async (app: Express) => {
-// export const initServer = async (app) => {
 export default async (app) => {
   // await initMiddlewares(app)
   initRoutes(app)
 
-  app.set('trust proxy', config.trustProxy);
-
+  app.set('trust proxy', config.trustProxy)
 
   // logger.info(`App ${settings.name}, running on port ${settings.port}, NODE_ENV ${settings.env}`)
 

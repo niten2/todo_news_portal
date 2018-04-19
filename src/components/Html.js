@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import serialize from 'serialize-javascript';
-import config from '../config';
-
 /* eslint-disable react/no-danger */
+import React from 'react'
+import PropTypes from 'prop-types'
+import serialize from 'serialize-javascript'
+import config from 'config'
 
 class Html extends React.Component {
+
   static propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
@@ -18,15 +18,15 @@ class Html extends React.Component {
     scripts: PropTypes.arrayOf(PropTypes.string.isRequired),
     app: PropTypes.object, // eslint-disable-line
     children: PropTypes.string.isRequired,
-  };
+  }
 
   static defaultProps = {
     styles: [],
     scripts: [],
-  };
+  }
 
   render() {
-    const { title, description, styles, scripts, app, children } = this.props;
+    const { title, description, styles, scripts, app, children } = this.props
     return (
       <html className="no-js" lang="en">
 
@@ -63,10 +63,10 @@ class Html extends React.Component {
             <script
               dangerouslySetInnerHTML={{
                 __html:
-                  'window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;' +
+                  'window.ga=function(){ga.q.push(arguments)}ga.q=[]ga.l=+new Date' +
                   `ga('create','${
                     config.analytics.googleTrackingId
-                  }','auto');ga('send','pageview')`,
+                  }','auto')ga('send','pageview')`,
               }}
             />
           )}
@@ -82,8 +82,8 @@ class Html extends React.Component {
         </body>
 
       </html>
-    );
+    )
   }
 }
 
-export default Html;
+export default Html

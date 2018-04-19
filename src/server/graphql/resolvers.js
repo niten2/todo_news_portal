@@ -2,89 +2,59 @@
 // // import { createJwt } from "app/services/jwt_token"
 // // import { authenticated, calculatePersentLoan } from "app/services/utils"
 
-// const Query = {
-//   // users: authenticated(async (root: any, args: any, ctx: any) => {
-//   //   ctx.ability.throwUnlessCan('read', User)
+const Query = {
 
-//   //   let options: any = { _id: { $ne: ctx.user.id } }
+  users: async (root: any, args: any, ctx: any) => {
+    // ctx.ability.throwUnlessCan('read', User)
 
-//   //   if (args.input && args.input.role) {
-//   //     options.role = args.input.role
-//   //   }
+    // let options: any = { _id: { $ne: ctx.user.id } }
 
-//   //   const users = await User.find(options)
+    // if (args.input && args.input.role) {
+    //   options.role = args.input.role
+    // }
 
-//   //   return users
-//   // }),
+    // const users = await User.find(options)
 
-//   // user: authenticated(async (root: any, args: any, ctx: any) => {
-//   //   ctx.ability.throwUnlessCan('read', ctx.user)
+    // return users
+  },
 
-//   //   const user = await User.findById(args.id)
-//   //   return user
-//   // }),
+  user: async (root: any, args: any, ctx: any) => {
+    // ctx.ability.throwUnlessCan('read', ctx.user)
 
-//   // me: authenticated(async (root: any, args: any, ctx: any) => {
-//   //   if (!ctx.user) throw new Error("user not found")
+    // const user = await User.findById(args.id)
+    // return user
+  },
 
-//   //   const user = await User.findById(ctx.user.id)
-//   //   return user
-//   // }),
+}
 
-//   // clients: authenticated(async (root: any, args: any, ctx: any) => {
-//   //   ctx.ability.throwUnlessCan('read', Client)
+const Mutation = {
 
-//   //   const clients = await Client.find()
+  createUser: async (root: any, args: any, ctx: any) => {
+    // ctx.ability.throwUnlessCan('create', User)
 
-//   //   await Territory.populate(clients, { path: "territory" })
+    // const user = await User.create(args.input)
+    // return user
+  },
 
-//   //   return clients
-//   // }),
+  updateUser: async (root: any, args: any, ctx: any) => {
+    // const user = await User.findById(args.input.id)
 
-//   // client: authenticated(async (root: any, args: any, ctx: any) => {
-//   //   ctx.ability.throwUnlessCan('read', Client)
+    // ctx.ability.throwUnlessCan('update', user)
 
-//   //   const client = await Client.findById(args.id)
+    // await user.set(args.input)
+    // await user.save()
 
-//   //   await Loan.populate(client, { path: "loans" })
-//   //   await Territory.populate(client, { path: "territory" })
+    // return user
+  },
 
-//   //   return client
-//   // }),
+  deleteUser: async (_: any, args: any, ctx: any) => {
+    // ctx.ability.throwUnlessCan('delete', User)
 
-//   // territories: authenticated(async (root: any, args: any, ctx: any) => {
-//   //   const territories = await Territory.find()
-//   //   return territories
-//   // }),
+    // const user = await User.findByIdAndRemove(args.input.id)
+    // return user
+  },
 
-//   // loan: authenticated(async (root: any, args: any, ctx: any) => {
-//   //   ctx.ability.throwUnlessCan('read', Loan)
-
-//   //   const loan = await Loan.findById(args.id)
-
-//   //   await Client.populate(loan, { path: "client" })
-//   //   await Territory.populate(loan.client, { path: "territory" })
-
-//   //   return loan
-//   // }),
-
-//   // loans: authenticated(async (root: any, args: any, ctx: any) => {
-//   //   const options = args.input && args.input.client ? { "client": args.input.client } : null
-//   //   let loans = await Loan.find(options)
-
-//   //   return loans
-//   // }),
-
-// // }
-
-// // const Mutation = {
-
-//   // createUser: authenticated(async (root: any, args: any, ctx: any) => {
-//   //   ctx.ability.throwUnlessCan('create', User)
-
-//   //   const user = await User.create(args.input)
-//   //   return user
-//   // }),
+}
 
 //   // updateUser: authenticated(async (root: any, args: any, ctx: any) => {
 //   //   const user = await User.findById(args.input.id)
@@ -218,7 +188,7 @@
 
 // }
 
-// export default { Query, Mutation }
+export default { Query, Mutation }
 
 
 
@@ -303,6 +273,6 @@
 
 // //     return items;
 // //   },
-// // };
+// };
 
 // // export default news;

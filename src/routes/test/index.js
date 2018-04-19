@@ -1,6 +1,5 @@
 import React from 'react'
-import Layout from '../../components/Layout'
-import Page from '../../components/Page'
+import Users from 'components/users'
 
 function action() {
   return {
@@ -9,10 +8,10 @@ function action() {
 
     component: (
       <Layout>
-        <h1> dsfsdf </h1>
+        <Users />
       </Layout>
     ),
-  };
+  }
 }
 
-export default action;
+export default action
