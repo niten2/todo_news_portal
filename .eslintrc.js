@@ -11,10 +11,21 @@ module.exports = {
     'prettier/react',
   ],
 
-  plugins: ['flowtype', 'css-modules', 'prettier'],
+  plugins: [
+    'flowtype',
+    'css-modules',
+    'prettier'
+  ],
 
   globals: {
     __DEV__: true,
+    "xdescribe": true,
+    "describe": true,
+    "test": true,
+    "expect": true,
+    "promise": true,
+    "it": true,
+    "PrettyError": true,
   },
 
   env: {
@@ -22,6 +33,17 @@ module.exports = {
   },
 
   rules: {
+
+    semicolon: [
+      false,
+      "always",
+      "ignore-bound-class-methods"
+    ],
+
+    "no-use-before-define": ["error", { "functions": false, "classes": false }],
+
+    "no-unused-vars": "off",
+
     // Forbid the use of extraneous packages
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
     'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],
@@ -29,12 +51,14 @@ module.exports = {
     // Recommend not to leave any console.log in your code
     // Use console.error, console.warn and console.info instead
     // https://eslint.org/docs/rules/no-console
-    'no-console': [
-      'error',
-      {
-        allow: ['warn', 'error', 'info'],
-      },
-    ],
+    // 'no-console': [
+    //   'error',
+    //   {
+    //     allow: ['warn', 'error', 'info'],
+    //   },
+    // ],
+
+    "no-console": "off",
 
     // Prefer destructuring from arrays and objects
     // http://eslint.org/docs/rules/prefer-destructuring
@@ -76,7 +100,7 @@ module.exports = {
 
     // ESLint plugin for prettier formatting
     // https://github.com/prettier/eslint-plugin-prettier
-    'prettier/prettier': 'error',
+    // 'prettier/prettier': 'error',
   },
 
   settings: {
@@ -84,7 +108,10 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/tree/master/resolvers
     'import/resolver': {
       node: {
-        moduleDirectory: ['node_modules', 'src'],
+        moduleDirectory: [
+          'node_modules',
+          'src'
+        ],
       },
     },
   },

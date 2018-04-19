@@ -7,8 +7,10 @@ import PrettyError from 'pretty-error';
 
 // import App from './components/App';
 // import Html from './components/Html';
-import { initServer } from './server/config/app.js';
-import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
+
+import initServer from 'server/config/app'
+
+// import { ErrorPageWithoutStyle } from 'routes/error/ErrorPage';
 // import errorPageStyle from './routes/error/ErrorPage.css';
 // import createFetch from './createFetch';
 // import router from './router';
@@ -41,10 +43,6 @@ const app = express()
 
 initServer(app)
 
-// Error handling
-const pe = new PrettyError();
-pe.skipNodeFiles();
-pe.skipPackage('express');
 
 if (!module.hot) {
   promise.then(() => {

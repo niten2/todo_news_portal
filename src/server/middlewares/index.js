@@ -1,9 +1,18 @@
-import ReactDOM from 'react-dom/server';
+import React from 'react'
+import ReactDOM from 'react-dom/server'
 import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
-import errorPageStyle from '../../routes/error/ErrorPage.css';
+import errorPageStyle from 'routes/error/ErrorPage.css'
+import { ErrorPageWithoutStyle } from 'routes/error/ErrorPage'
+import Html from 'components/Html'
 
 export default async (app) => {
+
+  // Error handling
+  const pe = new PrettyError();
+  pe.skipNodeFiles();
+  pe.skipPackage('express');
+
 
   // Register Node.js middleware
   // app.use(express.static(path.resolve(__dirname, 'public')));

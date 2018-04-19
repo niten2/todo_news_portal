@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
-import createFetch from '../../createFetch';
 import nodeFetch from 'node-fetch';
+import Html from 'components/Html';
+import createFetch from '../../createFetch';
 import config from '../../config';
 import router from '../../router';
 import App from '../../components/App';
 import chunks from './chunk-manifest.json'; // eslint-disable-line import/no-unresolved
-
-// import Html from '../../components/Html';
-import Html from 'components/Html';
 
 export default {
 

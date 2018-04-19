@@ -8,7 +8,7 @@ import initRoutes from "./routes"
 
 // export const initApp = async (app: Express) => {
 // export const initServer = async (app) => {
-export const initServer = async (app) => {
+export default async (app) => {
   // await initMiddlewares(app)
   initRoutes(app)
 

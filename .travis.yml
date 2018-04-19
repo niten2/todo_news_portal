@@ -15,5 +15,5 @@ addons:
 
 script:
   - npm run lint
-  - npm run test
+  - npm run tests
   - npm run build --release
