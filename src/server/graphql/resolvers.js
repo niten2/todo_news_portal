@@ -1,6 +1,6 @@
-import sync, { User } from "server/models"
-// // import { createJwt } from "app/services/jwt_token"
-// // import { authenticated, calculatePersentLoan } from "app/services/utils"
+import sync, { User } from "src/server/models"
+// import { createJwt } from "app/services/jwt_token"
+// import { authenticated, calculatePersentLoan } from "app/services/utils"
 
 const Query = {
 

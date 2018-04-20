@@ -8,6 +8,10 @@
 - npm run db:seed
 - npm run start
 
+## Tests
+
+- npm run tests
+
 ## Description
 
 1. Авторизация пользователей

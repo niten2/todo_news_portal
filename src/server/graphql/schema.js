@@ -1,5 +1,5 @@
 import { makeExecutableSchema } from "graphql-tools"
-import resolvers from 'server/graphql/resolvers'
+import resolvers from 'src/server/graphql/resolvers'
 
 const query = `
   type Query {

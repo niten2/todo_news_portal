@@ -1,4 +1,4 @@
-import { User } from "server/models"
+import { User } from "src/server/models"
 
 describe("attributes", () => {
   it("should have attributes", async () => {

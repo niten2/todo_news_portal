@@ -1,5 +1,5 @@
 import { graphql } from 'graphql'
-import schema from 'server/graphql/schema'
+import schema from 'src/server/graphql/schema'
 // import { createJwt } from "app/services/jwt_token"
 
 export default async (options: object = {}) => {

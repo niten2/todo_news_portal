@@ -1,6 +1,6 @@
 import '@babel/polyfill'
 import { } from "jest"
-import { sync, dropDb } from "server/config/sequelize"
+import { sync, dropDb } from "src/server/db/sequelize"
 
 import factory from "test/factory"
 import matchers from "test/support/matchers"
