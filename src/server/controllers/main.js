@@ -1,15 +1,12 @@
-// @flow
+import config from 'config'
 
 export default {
 
   index: async (req, res, next) => {
-
     res.json({
-      // name: settings.name,
-      name: "dfsdf1111",
+      name: config.name,
       current_version: "/v1",
     })
-
   }
 
 }

@@ -1,30 +1,24 @@
-import '@babel/polyfill';
+import '@babel/polyfill'
 import { } from "jest"
+import { sync, dropDb } from "server/config/sequelize"
 
-
-console.log(1111)
-
-// import mongoose, { connectDb, dropDb, closeDb } from "config/initialize/mongoose"
+import factory from "test/factory"
+import matchers from "test/support/matchers"
+import execGraphql from "test/support/exec_grapql"
 // import * as express from 'express'
 // import { initApp } from "config/app"
-// import factory from "factory"
 // import request from "support/request"
-// import execGraphql from "support/exec_grapql"
-// import addCustomExpect from "support/custom_expect"
-// import matchers from "support/matchers"
 
-// addCustomExpect()
-
-// global.factory = factory
 // global.app = express()
 
 // global.request = request
-// global.execGraphql = execGraphql
-// global.matchers = matchers
+global.execGraphql = execGraphql
+global.matchers = matchers
+global.factory = factory
 
-// jest.setTimeout(10000)
+jest.setTimeout(10000)
 
 // beforeAll(async () => { await connectDb() })
 // beforeAll(async () => { await initApp(app) })
-// afterEach(async () => { await dropDb() })
-// afterAll(async () => { await closeDb() })
+beforeAll(async () => { await sync() })
+afterEach(async () => { await dropDb() })

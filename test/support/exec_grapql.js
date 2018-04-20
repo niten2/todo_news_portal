@@ -1,20 +1,16 @@
-// import { graphql } from 'graphql'
+import { graphql } from 'graphql'
+import schema from 'server/graphql/schema'
 // import { createJwt } from "app/services/jwt_token"
-// import { Context } from "app/grapql/config"
-// import schema from 'app/graphql/schema'
 
-// import AuthMiddleware from "app/middlewares/auth"
-// import AbilityMiddleware from "app/middlewares/ability"
-
-// export default async (options: object = {}) => {
-  // console.log("grapql")
-  // const { query, variableValues, rootValue, user, unauth } = options
+export default async (options: object = {}) => {
+  const { query, variableValues, rootValue, user, unauth } = options
   // const context = await buildContext(user, unauth)
+  const context = {}
 
-  // return await graphql(schema, query, rootValue || {}, context, variableValues || {})
-// }
+  return await graphql(schema, query, rootValue || {}, context, variableValues || {})
+}
 
-// const buildContext = async (user: any, unauth: boolean): Context => {
+// const buildContext = async (user: any, unauth: boolean) => {
 //   let token = null
 
 //   if (!unauth && !user) {

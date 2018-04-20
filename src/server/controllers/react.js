@@ -75,6 +75,7 @@ export default {
       }
 
       const html = ReactDOM.renderToStaticMarkup(<Html {...data} />)
+
       res.status(route.status || 200)
       res.send(`<!doctype html>${html}`)
     } catch (err) {

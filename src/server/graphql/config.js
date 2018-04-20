@@ -1,5 +1,4 @@
-// import schema from 'server/graphql/schema'
-import schema from './schema'
+import schema from 'server/graphql/schema'
 // import { getTokenFromHeader } from 'app/services/utils'
 
 export default (req, res) => {

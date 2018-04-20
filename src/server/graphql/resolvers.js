@@ -1,28 +1,18 @@
-// // import { User, Client, Loan, Territory } from "app/models"
+import sync, { User } from "server/models"
 // // import { createJwt } from "app/services/jwt_token"
 // // import { authenticated, calculatePersentLoan } from "app/services/utils"
 
 const Query = {
 
   users: async (root: any, args: any, ctx: any) => {
-    // ctx.ability.throwUnlessCan('read', User)
+    const users = await User.findAll()
 
-    // let options: any = { _id: { $ne: ctx.user.id } }
-
-    // if (args.input && args.input.role) {
-    //   options.role = args.input.role
-    // }
-
-    // const users = await User.find(options)
-
-    // return users
+    return users
   },
 
   user: async (root: any, args: any, ctx: any) => {
-    // ctx.ability.throwUnlessCan('read', ctx.user)
-
-    // const user = await User.findById(args.id)
-    // return user
+    const user = await User.findById(args.id)
+    return user
   },
 
 }
@@ -37,6 +27,13 @@ const Mutation = {
   },
 
   updateUser: async (root: any, args: any, ctx: any) => {
+
+    let user = await User.create({
+      full_name: "Test",
+      email: "test@test.com",
+      password: "1111",
+    })
+
     // const user = await User.findById(args.input.id)
 
     // ctx.ability.throwUnlessCan('update', user)
@@ -44,7 +41,7 @@ const Mutation = {
     // await user.set(args.input)
     // await user.save()
 
-    // return user
+    return user
   },
 
   deleteUser: async (_: any, args: any, ctx: any) => {

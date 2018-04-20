@@ -104,8 +104,8 @@ module.exports = {
 
   moduleDirectories: [
     "node_modules",
-    "spec",
-    "src"
+    "src",
+    "<rootDir>",
   ],
 
 };
