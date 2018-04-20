@@ -20,20 +20,11 @@ const Query = {
 const Mutation = {
 
   createUser: async (root: any, args: any, ctx: any) => {
-    // ctx.ability.throwUnlessCan('create', User)
-
-    // const user = await User.create(args.input)
-    // return user
+    const user = await User.create(args.input)
+    return user
   },
 
   updateUser: async (root: any, args: any, ctx: any) => {
-
-    let user = await User.create({
-      full_name: "Test",
-      email: "test@test.com",
-      password: "1111",
-    })
-
     // const user = await User.findById(args.input.id)
 
     // ctx.ability.throwUnlessCan('update', user)

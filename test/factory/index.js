@@ -1,4 +1,4 @@
-import { User } from "server/models"
+import { User } from "src/server/models"
 import { factory } from "factory-girl"
 import faker from "faker"
 

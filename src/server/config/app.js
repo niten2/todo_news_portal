@@ -16,7 +16,7 @@ export default async (app) => {
 
   // If you are using proxy from external machine, you can set TRUST_PROXY env
   // Default is to trust proxy headers only from loopback interface.
-  console.log(1111)
+  return app
 }
 
 // export const listen = async (app: Express) => {

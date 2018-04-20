@@ -11,7 +11,7 @@ if (process.env.BROWSER) {
 export default {
 
   port: process.env.PORT || 3000,
-  name: process.env.NAME || 3000,
+  name: process.env.NAME,
   env: process.env.NODE_ENV,
 
   // NOTE https://expressjs.com/en/guide/behind-proxies.html
@@ -30,10 +30,10 @@ export default {
   },
 
   // // Web analytics
-  // analytics: {
-  //   // https://analytics.google.com/
-  //   googleTrackingId: process.env.GOOGLE_TRACKING_ID, // UA-XXXXX-X
-  // },
+  analytics: {
+    // https://analytics.google.com/
+    googleTrackingId: process.env.GOOGLE_TRACKING_ID, // UA-XXXXX-X
+  },
 
   // // Authentication
   // auth: {

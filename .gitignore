@@ -6,6 +6,8 @@ build
 
 # Runtime data
 database.sqlite
+database.development.sqlite
+database.test.sqlite
 
 # Test coverage
 coverage
@@ -27,3 +29,4 @@ yarn-error.log*
 .DS_Store
 
 .env
+.env.development

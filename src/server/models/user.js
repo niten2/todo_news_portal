@@ -1,7 +1,7 @@
 import DataType from 'sequelize'
-import Model from 'server/config/sequelize'
+import sequelize from 'src/server/db/sequelize'
 
-const User = Model.define('User', {
+const User = sequelize.define('User', {
   id: {
     type: DataType.UUID,
     defaultValue: DataType.UUIDV1,

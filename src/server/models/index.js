@@ -1,4 +1,4 @@
-import sequelize from 'server/config/sequelize'
+import sequelize from 'src/server/db/sequelize'
 import User from './user'
 // import UserLogin from './UserLogin'
 // import UserClaim from './UserClaim'

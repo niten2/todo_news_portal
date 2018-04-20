@@ -14,7 +14,9 @@ process.on('unhandledRejection', (reason, p) => {
 global.navigator = global.navigator || {}
 global.navigator.userAgent = global.navigator.userAgent || 'all'
 
-const app = initServer(express())
+const app = express()
+
+initServer(app)
 
 if (!module.hot) {
   promise.then(() => {

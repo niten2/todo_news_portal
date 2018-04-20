@@ -3,7 +3,7 @@ import React from 'react'
 // // import Spinner from 'src/components/shared/spinner'
 // // import Page500 from 'src/components/shared/page500'
 // // import UserView from 'src/components/users/list/view'
-// import { withData } from './queries'
+import { withData } from './queries'
 
 // // interface P {
 // //   usersQuery: {
@@ -16,6 +16,9 @@ import React from 'react'
 class ListUser extends React.Component {
 
   render() {
+    let { users, loading, error } = this.props.usersQuery
+
+    console.log(users, loading, error)
 
     return  (
 
@@ -83,5 +86,5 @@ class ListUser extends React.Component {
   }
 }
 
-// export default withData(ListUser)
-export default ListUser
+export default withData(ListUser)
+// export default ListUser

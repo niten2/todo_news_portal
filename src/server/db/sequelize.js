@@ -1,5 +1,5 @@
 import Sequelize, { Op } from 'sequelize'
-import config from 'config'
+import config from 'src/config'
 
 const sequelize = new Sequelize(config.databaseUrl, {
   operatorsAliases: Op,
