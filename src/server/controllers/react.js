@@ -5,8 +5,12 @@ import Html from 'components/Html'
 import createFetch from 'createFetch'
 import config from 'config'
 import router from 'router'
-import App from 'components/App'
-import chunks from './chunk-manifest.json' // eslint-disable-line import/no-unresolved
+
+// import schema from 'server/graphql/schema'
+// import graphql from 'components/App'
+
+// eslint-disable-line import/no-unresolved
+import chunks from './chunk-manifest.json'
 
 export default {
 
