@@ -6,8 +6,9 @@ import createFetch from 'createFetch'
 import config from 'config'
 import router from 'router'
 
-// import schema from 'server/graphql/schema'
-// import graphql from 'components/App'
+import schema from 'server/graphql/schema'
+import { graphql } from 'graphql'
+import App from 'components/App'
 
 // eslint-disable-line import/no-unresolved
 import chunks from './chunk-manifest.json'
@@ -15,6 +16,8 @@ import chunks from './chunk-manifest.json'
 export default {
 
   index: async (req, res, next) => {
+    console.log(1111111111111)
+
     try {
       const css = new Set()
 
@@ -29,8 +32,8 @@ export default {
       const fetch = createFetch(nodeFetch, {
         baseUrl: config.api.serverUrl,
         cookie: req.headers.cookie,
-        // schema,
-        // graphql,
+        schema,
+        graphql,
       })
 
       // Global (context) variables that can be easily accessed from any React component
@@ -43,6 +46,8 @@ export default {
         query: req.query,
       }
 
+      console.log(222222222222)
+
       const route = await router.resolve(context)
 
       if (route.redirect) {
@@ -52,9 +57,13 @@ export default {
 
       const data = { ...route }
 
+      console.log(8888, context)
+
       data.children = ReactDOM.renderToString(
         <App context={context}>{route.component}</App>,
       )
+
+      console.log(33333)
 
       data.styles = [{ id: 'css', cssText: [...css].join('') }]
 
@@ -74,6 +83,9 @@ export default {
       if (route.chunks) route.chunks.forEach(addChunk)
 
       data.scripts = Array.from(scripts)
+
+      // console.log(11111111, config.api.clientUrl)
+
       data.app = {
         apiUrl: config.api.clientUrl,
       }

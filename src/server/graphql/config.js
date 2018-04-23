@@ -10,11 +10,11 @@ export default (req, res) => {
       status: err.status
     }),
 
-    context: {
+    // context: {
       // token: getTokenFromHeader(req),
       // payload: req.payload,
       // user: req.user,
       // ability: req.ability,
-    },
+    // },
   }
 }
