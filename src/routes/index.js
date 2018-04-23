@@ -11,8 +11,9 @@ const routes = {
 
     {
       path: '',
-      load: () => import(/* webpackChunkName: 'home' */ './test'),
+      load: () => import(/* webpackChunkName: 'test' */ './test'),
     },
+
     // {
     //   path: '/test',
     //   load: () => import(/* webpackChunkName: 'home' */ './test'),

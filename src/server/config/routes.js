@@ -2,18 +2,38 @@ import ReactDOM from 'react-dom/server'
 import ReactConroller from "../controllers/react"
 import MainConroller from "../controllers/main"
 
+import schema from 'server/graphql/schema'
+
 // import { Express, Response, Request, NextFunction } from "express"
-import { graphqlExpress, graphiqlExpress } from "apollo-server-express"
-import graphqOptions from 'server/graphql/config'
+// import { graphqlExpress, graphiqlExpress } from "apollo-server-express"
+// import graphqOptions from 'server/graphql/config'
 // import settings from "config/settings"
+
+
+import expressGraphQL from 'express-graphql'
 
 export default (app) => {
 
   app.get("/api", MainConroller.index)
-  app.use("/api/v1", graphqlExpress(graphqOptions))
-  app.use("/api/v1", graphiqlExpress({ endpointURL: "/graphql" }))
+  // app.use("/api/v1", graphqlExpress(graphqOptions))
+  // app.use("/api/v1", graphiqlExpress({ endpointURL: "/graphql" }))
 
   app.get('*', ReactConroller.index)
+
+
+  //
+  // Register API middleware
+  // -----------------------------------------------------------------------------
+  // https://github.com/graphql/express-graphql#options
+  const graphqlMiddleware = expressGraphQL(req => ({
+    schema,
+    graphiql: __DEV__,
+    rootValue: { request: req },
+    pretty: __DEV__,
+  }));
+
+  app.use('/graphql', graphqlMiddleware);
+
 
 
 

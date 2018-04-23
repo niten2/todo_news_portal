@@ -13,17 +13,42 @@ import { withData } from './queries'
 // //   }
 // // }
 
+const UserView = (props) => {
+  let { user } = props
+
+  return (
+    <div>
+      <div>{user.id}</div>
+      <div>{user.email}</div>
+    </div>
+  )
+}
+
 class ListUser extends React.Component {
 
   render() {
     let { users, loading, error } = this.props.usersQuery
 
-    console.log(users, loading, error)
+    // console.log(users, loading, error)
+
+    if (loading) {
+      return (<div>Loading...</div>)
+    }
+
+    if (error) {
+      return (<div>{error.message}</div>)
+    }
 
     return  (
+      <div>
 
-      <div> dsfsdfsdxzzzz </div>
+        <div> dsfsdfsdxzzzz </div>
 
+        {users.map((user, index) => (
+          <UserView user={user} key={index}/>
+        ))}
+
+      </div>
     )
 
 
