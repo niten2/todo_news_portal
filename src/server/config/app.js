@@ -1,25 +1,18 @@
-import config from '../../config'
-import initRoutes from "./routes"
-
-// import settings from "config/settings"
-// import initMiddlewares from "../middlewares"
-// import { connectDb } from "config/initialize/mongoose"
-// import logger from "app/services/logger"
+import config from 'src/config'
+import initRoutes from "server/config/routes"
 
 export default async (app) => {
-  // await initMiddlewares(app)
   initRoutes(app)
-
-  app.set('trust proxy', config.trustProxy)
-
-  // logger.info(`App ${settings.name}, running on port ${settings.port}, NODE_ENV ${settings.env}`)
 
   // If you are using proxy from external machine, you can set TRUST_PROXY env
   // Default is to trust proxy headers only from loopback interface.
+  app.set('trust proxy', config.trustProxy)
+
   return app
 }
 
-// export const listen = async (app: Express) => {
+// TODO refactoring
+// export const listen = async (app) => {
 //   try {
 //     await connectDb()
 //     await initApp(app)

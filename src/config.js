@@ -35,6 +35,7 @@ export default {
     googleTrackingId: process.env.GOOGLE_TRACKING_ID, // UA-XXXXX-X
   },
 
+  // TODO clear code
   // // Authentication
   // auth: {
   //   jwt: { secret: process.env.JWT_SECRET || 'React Starter Kit' },

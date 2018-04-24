@@ -6,6 +6,7 @@ const sequelize = new Sequelize(config.databaseUrl, {
   define: {
     freezeTableName: true,
   },
+
   // logging: !config.isEnvTest,
   logging: false,
 })

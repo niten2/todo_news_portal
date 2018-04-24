@@ -57,23 +57,15 @@ module.exports = {
     "import/prefer-default-export": "off",
     "arrow-body-style": "off",
     "react/no-array-index-key": "off",
-
-    // Forbid the use of extraneous packages
-    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
-    'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],
-
     "prefer-const": "off",
     "camelcase": "off",
     "import/first": "off",
 
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
+    'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],
 
     "no-console": "off",
-    // 'no-console': [
-    //   'error',
-    //   {
-    //     allow: ['warn', 'error', 'info'],
-    //   },
-    // ],
+    // 'no-console': [ 'error', { allow: ['warn', 'error', 'info'] } ],
 
     // Prefer destructuring from arrays and objects
     // http://eslint.org/docs/rules/prefer-destructuring
@@ -132,5 +124,4 @@ module.exports = {
     },
   },
 
-
-};
+}

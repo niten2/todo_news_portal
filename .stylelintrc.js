@@ -1,6 +1,7 @@
 // stylelint configuration
 // https://stylelint.io/user-guide/configuration/
 module.exports = {
+
   // The standard config based on a handful of CSS style guides
   // https://github.com/stylelint/stylelint-config-standard
   extends: 'stylelint-config-standard',
@@ -50,4 +51,4 @@ module.exports = {
     // https://github.com/hudochenkov/stylelint-order/blob/master/rules/properties-order/README.md
     'order/properties-order': [],
   },
-};
+}
