@@ -1,9 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import serialize from 'serialize-javascript';
-import config from '../config';
-
-/* eslint-disable react/no-danger */
+import React from 'react'
+import PropTypes from 'prop-types'
+import serialize from 'serialize-javascript'
+import config from '../config'
 
 class Html extends React.Component {
 
@@ -19,27 +17,25 @@ class Html extends React.Component {
     scripts: PropTypes.arrayOf(PropTypes.string.isRequired),
     app: PropTypes.object, // eslint-disable-line
     children: PropTypes.string.isRequired,
-  };
+  }
 
   static defaultProps = {
     styles: [],
     scripts: [],
-  };
+  }
 
   render() {
-    const { title, description, styles, scripts, app, children } = this.props;
-
-    console.log(3444444)
-
+    const { title, description, styles, scripts, app, children } = this.props
 
     return (
       <html className="no-js" lang="en">
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <title>{title}</title>
           <meta name="description" content={description} />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+          <title>{title}</title>
 
           {scripts.map(script => (
             <link key={script} rel="preload" href={script} as="script" />
@@ -47,6 +43,9 @@ class Html extends React.Component {
 
           <link rel="manifest" href="/site.webmanifest" />
           <link rel="apple-touch-icon" href="/icon.png" />
+
+          <link href="/css/style.css" rel="stylesheet" />
+          <link href="/css/font-awesome.min.css" rel="stylesheet" />
 
           {styles.map(style => (
             <style
@@ -83,9 +82,10 @@ class Html extends React.Component {
             />
           )}
         </body>
+
       </html>
-    );
+    )
   }
 }
 
-export default Html;
+export default Html

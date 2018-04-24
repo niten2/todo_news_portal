@@ -29,8 +29,6 @@ class ListUser extends React.Component {
   render() {
     const { users, loading, error } = this.props.usersQuery
 
-    // console.log(users, loading, error)
-
     if (loading) {
       return (<div>Loading...</div>)
     }

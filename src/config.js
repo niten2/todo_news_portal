@@ -1,6 +1,14 @@
 import dotenv from "dotenv"
 
-const path = process.env.NODE_ENV ? `.env.${process.env.NODE_ENV}` : ".env"
+const getPath = (env) => {
+  if (env === "test") {
+    return `.env.test`
+  }
+
+  return ".env"
+}
+
+const path = getPath(process.env.NODE_ENV)
 
 dotenv.config({ path })
 

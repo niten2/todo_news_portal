@@ -14,7 +14,6 @@ const Article = sequelize.define('Article', {
 
   content: {
     type: DataType.STRING(255),
-    validate: { isEmail: true },
   },
 
 }, {
