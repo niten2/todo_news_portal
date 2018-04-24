@@ -29,7 +29,7 @@ exports[`Layout renders children correctly 1`] = `
         <span
           className="spacer"
         >
-           | 
+           |
         </span>
         <a
           className="link"

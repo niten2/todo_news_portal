@@ -64,7 +64,7 @@ const config = {
   resolve: {
     // Allow absolute paths in imports, e.g. import Button from 'components/Button'
     // Keep in sync with .flowconfig and .eslintrc
-    modules: ['node_modules', 'src'],
+    modules: ['node_modules', '.'],
   },
 
   module: {
@@ -100,7 +100,10 @@ const config = {
             ],
             // Experimental ECMAScript proposals
             // https://babeljs.io/docs/plugins/#presets-stage-x-experimental-presets-
-            '@babel/preset-stage-2',
+            // '@babel/preset-stage-2',
+
+            ['@babel/preset-stage-2', { decoratorsLegacy: true }],
+
             // Flow
             // https://github.com/babel/babel/tree/master/packages/babel-preset-flow
             '@babel/preset-flow',

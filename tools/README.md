@@ -48,8 +48,11 @@ $ yarn start --release                    # Launch dev server in production mode
 
 * `webpack.config.js` - Webpack configuration for both client-side and
   server-side bundles
+
 * `postcss.config.js` - PostCSS configuration for transforming styles with JS
   plugins
+
 * `run.js` - Helps to launch other scripts with `babel-node` (e.g. `babel-node
   tools/run build`)
+
 * `.eslintrc` - ESLint overrides for built automation scripts
