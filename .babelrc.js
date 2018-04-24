@@ -22,7 +22,10 @@ module.exports = {
         },
       },
     ],
-    '@babel/preset-stage-2',
+
+    ['@babel/preset-stage-2', { decoratorsLegacy: true }],
+
+    // '@babel/preset-stage-2',
     '@babel/preset-flow',
     '@babel/preset-react',
   ],
