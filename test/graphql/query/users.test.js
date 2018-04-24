@@ -6,7 +6,7 @@ const query = `
   }
 `
 
-describe('Layout', () => {
+describe("valid params given", () => {
 
   it('should return users', async () => {
     let user = await factory.create('user')

@@ -5,14 +5,21 @@ const query = `
   type Query {
     users(input: UsersInput): [User]
     user(id: ID!): User
+
+    articles: [Article]
+    article(id: ID!): Article
   }
 `
 
 const mutation = `
   type Mutation {
-    createUser(input: UserCreateInput!): User
-    updateUser(input: UserUpdateInput!): User
-    deleteUser(input: IdInput!): User
+    createUser(input: CreateInputUser!): User
+    updateUser(input: UpdateInputUser!): User
+    deleteUser(input: InputId!): User
+
+    createArticle(input: CreateInputArticle!): Article
+    updateArticle(input: UpdateInputArticle!): Article
+    deleteArticle(input: InputId!): Article
   }
 `
 
@@ -28,14 +35,25 @@ const models = `
     createdAt: String
     updatedAt: String
   }
+
+  type Article {
+    id: ID
+
+    title: String
+    content: String
+
+    createdAt: String
+    updatedAt: String
+  }
+
 `
 
 const inputs = `
-  input IdInput {
+  input InputId {
     id: ID!
   }
 
-  input UserCreateInput {
+  input CreateInputUser {
     full_name: String
     email: String
     password: String
@@ -45,7 +63,7 @@ const inputs = `
     updatedAt: String
   }
 
-  input UserUpdateInput {
+  input UpdateInputUser {
     id: ID!
     full_name: String
     email: String
@@ -59,8 +77,25 @@ const inputs = `
   input UsersInput {
     role: String
   }
+
+
+  input CreateInputArticle {
+    title: String
+    content: String
+  }
+
+  input UpdateInputArticle {
+    id: ID!
+
+    title: String
+    content: String
+  }
 `
 
 const typeDefs = query + mutation + models + inputs
 
-export default makeExecutableSchema({ typeDefs, resolvers })
+export default makeExecutableSchema({
+  typeDefs,
+  resolvers,
+  ...(__DEV__ ? { log: e => console.error(e.stack) } : {}),
+})

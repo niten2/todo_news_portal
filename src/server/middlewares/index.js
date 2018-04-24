@@ -9,10 +9,9 @@ import Html from 'components/Html'
 export default async (app) => {
 
   // Error handling
-  const pe = new PrettyError();
-  pe.skipNodeFiles();
-  pe.skipPackage('express');
-
+  const pe = new PrettyError()
+  pe.skipNodeFiles()
+  pe.skipPackage('express')
 
   // Register Node.js middleware
   // app.use(express.static(path.resolve(__dirname, 'public')));

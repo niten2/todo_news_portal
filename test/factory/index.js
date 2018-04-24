@@ -1,4 +1,4 @@
-import { User } from "src/server/models"
+import { User, Article } from "src/server/models"
 import { factory } from "factory-girl"
 import faker from "faker"
 
@@ -9,8 +9,11 @@ factory.define('user', User, {
   // login: faker.name.findName,
   // phone: faker.phone.phoneNumber,
   // role: "manager",
+})
 
-  // territory: factory.assoc('territory', '_id'),
+factory.define('article', Article, {
+  title: faker.name.findName,
+  content: faker.internet.email,
 })
 
 export default factory

@@ -1,4 +1,5 @@
 import User from './user'
+import Article from './article'
 // import UserLogin from './UserLogin'
 // import UserClaim from './UserClaim'
 // import UserProfile from './UserProfile'
@@ -25,5 +26,6 @@ import User from './user'
 // })
 
 export {
-  User
+  User,
+  Article,
 }

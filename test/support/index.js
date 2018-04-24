@@ -11,5 +11,5 @@ global.factory = factory
 
 jest.setTimeout(10000)
 
-beforeAll(async () => { await sync() })
+beforeEach(async () => { await sync() })
 afterEach(async () => { await dropDb() })

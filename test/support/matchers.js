@@ -7,9 +7,20 @@ const user_attr = `
   updatedAt
 `
 
+const article_attr = `
+  id
+
+  title
+  content
+
+  createdAt
+  updatedAt
+`
+
 export default {
 
   user_attr,
+  article_attr,
 
   user_json: expect.objectContaining({
     id: expect.any(String),
@@ -17,11 +28,16 @@ export default {
     full_name: expect.any(String),
     email: expect.any(String),
 
-    // login: expect.any(String),
-    // password: expect.any(String),
-    // role: expect.any(String),
-    // phone: expect.any(String),
-    // territory: expect.any(String),
+    createdAt: expect.any(String),
+    updatedAt: expect.any(String),
+  }),
+
+  article_json: expect.objectContaining({
+    id: expect.any(String),
+
+    title: expect.any(String),
+    content: expect.any(String),
+
     createdAt: expect.any(String),
     updatedAt: expect.any(String),
   }),

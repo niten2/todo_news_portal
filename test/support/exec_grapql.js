@@ -7,6 +7,7 @@ export default async (options: object = {}) => {
   const { query, variableValues, rootValue, user, unauth } = options
   // const context = await buildContext(user, unauth)
   const context = {}
+
   let res = await graphql(schema, query, rootValue || {}, context, variableValues || {})
 
   return res
