@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import serialize from 'serialize-javascript'
-import config from '../config'
+import config from 'src/config'
 
 class Html extends React.Component {
 
@@ -44,8 +44,7 @@ class Html extends React.Component {
           <link rel="manifest" href="/site.webmanifest" />
           <link rel="apple-touch-icon" href="/icon.png" />
 
-          <link href="/css/style.css" rel="stylesheet" />
-          <link href="/css/font-awesome.min.css" rel="stylesheet" />
+          <link href="/css/main.css" rel="stylesheet" />
 
           {styles.map(style => (
             <style
@@ -89,3 +88,5 @@ class Html extends React.Component {
 }
 
 export default Html
+          // <link href="/css/style.css" rel="stylesheet" />
+          // <link href="/css/font-awesome.min.css" rel="stylesheet" />
