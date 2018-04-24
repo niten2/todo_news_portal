@@ -10,12 +10,6 @@ const sequelize = new Sequelize(config.databaseUrl, {
   logging: false,
 })
 
-export const sync = (...args) => {
-  return sequelize.sync(...args)
-}
-
-export const dropDb = () => {
-  return sequelize.drop()
-}
-
+export const sync = (...args) => sequelize.sync(...args)
+export const dropDb = () => sequelize.drop()
 export default sequelize

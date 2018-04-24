@@ -1,4 +1,3 @@
-import sequelize from 'src/server/db/sequelize'
 import User from './user'
 // import UserLogin from './UserLogin'
 // import UserClaim from './UserClaim'
@@ -25,11 +24,6 @@ import User from './user'
 //   onDelete: 'cascade',
 // })
 
-const sync = (...args) => {
-  return sequelize.sync(...args)
-}
-
-export default sync
 export {
   User
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 // external-global styles must be imported in your JS.
 import normalizeCss from 'normalize.css'
@@ -16,9 +16,9 @@ import s from './Layout.css'
 // <Footer />
 
 class Layout extends React.Component {
-  // static propTypes = {
-  //   children: PropTypes.node.isRequired,
-  // }
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+  }
 
   render() {
     return (

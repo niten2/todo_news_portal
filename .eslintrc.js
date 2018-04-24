@@ -25,7 +25,14 @@ module.exports = {
     "expect": true,
     "promise": true,
     "it": true,
+    "xit": true,
     "PrettyError": true,
+    "jest": true,
+    "beforeAll": true,
+    "afterEach": true,
+    "execGraphql": true,
+    "matchers": true,
+    "factory": true,
   },
 
   env: {
@@ -41,24 +48,32 @@ module.exports = {
     ],
 
     "no-use-before-define": ["error", { "functions": false, "classes": false }],
-
     "no-unused-vars": "off",
+
+    "react/prop-types": "off",
+
+    "no-underscore-dangle": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "arrow-body-style": "off",
+    "react/no-array-index-key": "off",
 
     // Forbid the use of extraneous packages
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
     'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],
 
-    // Recommend not to leave any console.log in your code
-    // Use console.error, console.warn and console.info instead
-    // https://eslint.org/docs/rules/no-console
+    "prefer-const": "off",
+    "camelcase": "off",
+    "import/first": "off",
+
+
+    "no-console": "off",
     // 'no-console': [
     //   'error',
     //   {
     //     allow: ['warn', 'error', 'info'],
     //   },
     // ],
-
-    "no-console": "off",
 
     // Prefer destructuring from arrays and objects
     // http://eslint.org/docs/rules/prefer-destructuring
@@ -110,9 +125,12 @@ module.exports = {
       node: {
         moduleDirectory: [
           'node_modules',
-          'src'
+          'src',
+          '.',
         ],
       },
     },
   },
+
+
 };

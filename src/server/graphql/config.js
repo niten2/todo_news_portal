@@ -1,3 +1,4 @@
+// @flow
 import schema from 'src/server/graphql/schema'
 // import { getTokenFromHeader } from 'app/services/utils'
 

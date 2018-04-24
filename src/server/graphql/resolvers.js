@@ -1,3 +1,4 @@
+// @flow
 import sync, { User } from "src/server/models"
 // import { createJwt } from "app/services/jwt_token"
 // import { authenticated, calculatePersentLoan } from "app/services/utils"
@@ -32,7 +33,7 @@ const Mutation = {
     // await user.set(args.input)
     // await user.save()
 
-    return user
+    // return user
   },
 
   deleteUser: async (_: any, args: any, ctx: any) => {

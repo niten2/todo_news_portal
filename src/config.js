@@ -19,9 +19,9 @@ export default {
 
   databaseUrl: process.env.DATABASE_URL || 'sqlite:database.sqlite',
 
-  isEnvDev: process.env.NODE_ENV == "development",
-  isEnvTest: process.env.NODE_ENV == "test",
-  isEnvProd: process.env.NODE_ENV == "production",
+  isEnvDev: process.env.NODE_ENV === "development",
+  isEnvTest: process.env.NODE_ENV === "test",
+  isEnvProd: process.env.NODE_ENV === "production",
 
   // NOTE API Gateway
   api: {

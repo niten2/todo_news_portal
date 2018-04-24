@@ -27,7 +27,7 @@ const UserView = (props) => {
 class ListUser extends React.Component {
 
   render() {
-    let { users, loading, error } = this.props.usersQuery
+    const { users, loading, error } = this.props.usersQuery
 
     // console.log(users, loading, error)
 

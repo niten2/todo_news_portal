@@ -4,13 +4,13 @@ import ReactDOM from 'react-dom'
 import deepForceUpdate from 'react-deep-force-update'
 import queryString from 'query-string'
 import { createPath } from 'history/PathUtils'
+import router from 'src/router'
 import App from './components/App'
 import createFetch from './createFetch'
 // import configureStore from './store/configureStore'
 import { updateMeta } from './DOMUtils'
 import history from './history'
 import createApolloClient from './core/createApolloClient'
-import router from 'src/router'
 
 // Universal HTTP client
 const fetch = createFetch(window.fetch, {
