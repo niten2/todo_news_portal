@@ -22,3 +22,5 @@ jest.setTimeout(10000)
 // beforeAll(async () => { await initApp(app) })
 beforeAll(async () => { await sync() })
 afterEach(async () => { await dropDb() })
+
+// console.log(11111)

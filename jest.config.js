@@ -1,11 +1,17 @@
 // https://facebook.github.io/jest/docs/en/configuration.html
-// import '@babel/polyfill';
+// import '@babel/polyfill'
 
 // var babelConfig = require('./babel.config')
-
 // module.exports = require('babel-jest').createTransformer(babelConfig)
 
+// require('@babel/polyfill')
+
 module.exports = {
+
+  globals: {
+    __DEV__: true,
+  },
+
   // Modules can be explicitly auto-mocked using jest.mock(moduleName).
   // https://facebook.github.io/jest/docs/en/configuration.html#automock-boolean
   automock: false, // [boolean]
@@ -42,9 +48,6 @@ module.exports = {
   // coverageReporters: [], // [array<string>]
   // coverageThreshold: {}, // [object]
 
-  globals: {
-    __DEV__: true,
-  },
 
   // https://facebook.github.io/jest/docs/en/configuration.html#mapcoverage-boolean
   // mapCoverage: false, // [boolean]
@@ -87,15 +90,12 @@ module.exports = {
 
   transform: {
     '\\.(js|jsx)$': '<rootDir>/node_modules/babel-jest',
-    '^(?!.*\\.(js|jsx|json|css|less|styl|scss|sass|sss)$)':
-      '<rootDir>/tools/lib/fileTransformer.js',
+    // '\\.(js)$': '<rootDir>/node_modules/babel-jest',
+    // '\\.(jsx)$': '<rootDir>/node_modules/babel-jest',
+    '^(?!.*\\.(js|jsx|json|css|less|styl|scss|sass|sss)$)': '<rootDir>/tools/lib/fileTransformer.js',
   },
 
-  // transformIgnorePatterns: // [array<string>]
-  // unmockedModulePathPatterns: // [array<string>]
-
   verbose: true, // [boolean]
-
   setupTestFrameworkScriptFile: "./test/support/index.js",
 
   testMatch: [
@@ -104,8 +104,9 @@ module.exports = {
 
   moduleDirectories: [
     "node_modules",
-    // "src",
+    "src",
+    "test",
     "<rootDir>",
   ],
 
-};
+}

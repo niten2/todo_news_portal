@@ -1,20 +1,38 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import App from '../App';
-import Layout from './Layout';
+// import React from 'react'
+// import renderer from 'react-test-renderer'
+// import App from 'components/App'
+// import Layout from 'components/Layout'
 
-xdescribe('Layout', () => {
-  test('renders children correctly', () => {
-    const wrapper = renderer
-      .create(
-        <App context={{ insertCss: () => {}, fetch: () => {}, pathname: '' }}>
-          <Layout>
-            <div className="child" />
-          </Layout>
-        </App>,
-      )
-      .toJSON();
+// describe('Layout', () => {
+//   it('renders children correctly', () => {
+//     // const app = (
+//     //   <App context={{ insertCss: () => {}, fetch: () => {}, pathname: '' }}>
+//     //     <Layout>
+//     //       <div className="child" />
+//     //     </Layout>
+//     //   </App>
+//     // )
 
-    expect(wrapper).toMatchSnapshot();
-  });
-});
+//     console.log(111)
+
+//     // const wrapper = renderer.create(<App />).toJSON()
+
+//     // expect(wrapper).toMatchSnapshot()
+//   })
+// })
+
+
+import config from "src/config"
+
+it('should return valid values', () => {
+
+  console.log(11111)
+
+  const attr = {
+    port: process.env.PORT || 3000,
+
+    trustProxy: process.env.TRUST_PROXY || 'loopback',
+  }
+
+  expect(config).toEqual(expect.objectContaining(attr))
+})

@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-// import { Provider as ReduxProvider } from 'react-redux';
-import { ApolloProvider } from 'react-apollo';
+import React from 'react'
+import PropTypes from 'prop-types'
+// import { Provider as ReduxProvider } from 'react-redux'
+import { ApolloProvider } from 'react-apollo'
 
 const ContextType = {
   // Enables critical path CSS rendering
@@ -19,7 +19,7 @@ const ContextType = {
   // Apollo Client
 
   client: PropTypes.object.isRequired,
-};
+}
 
 /**
  * The top-level React component setting context (global) variables
@@ -32,7 +32,7 @@ const ContextType = {
  *   const context = {
  *     history: createBrowserHistory(),
  *     store: createStore(),
- *   };
+ *   }
  *
  *   ReactDOM.render(
  *     <App context={context}>
@@ -41,25 +41,25 @@ const ContextType = {
  *       </Layout>
  *     </App>,
  *     container,
- *   );
+ *   )
  */
 class App extends React.PureComponent {
   static propTypes = {
     context: PropTypes.shape(ContextType).isRequired,
     children: PropTypes.element.isRequired,
-  };
+  }
 
-  static childContextTypes = ContextType;
+  static childContextTypes = ContextType
 
   getChildContext() {
     // console.log(22222, this.props.context)
 
-    return this.props.context;
+    return this.props.context
   }
 
   render() {
-    // Here, we are at universe level, sure? ;-)
-    const { client } = this.props.context;
+    // Here, we are at universe level, sure? -)
+    const { client } = this.props.context
 
     // console.log(client, 11111)
     // NOTE: If you need to add or modify header, footer etc. of the app,
@@ -68,8 +68,8 @@ class App extends React.PureComponent {
       <ApolloProvider client={client}>
         {this.props.children}
       </ApolloProvider>
-    );
+    )
   }
 }
 
-export default App;
+export default App

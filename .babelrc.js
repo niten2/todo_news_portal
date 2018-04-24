@@ -1,5 +1,6 @@
 // https://babeljs.io/docs/usage/api/
 module.exports = {
+
   // plugins: [["resolver", {"resolveDirs": ["./src"]}]],
   "plugins": [
     ["module-resolver", {
@@ -11,7 +12,6 @@ module.exports = {
       // }
     }]
   ],
-
 
   presets: [
     [
@@ -29,6 +29,7 @@ module.exports = {
     '@babel/preset-flow',
     '@babel/preset-react',
   ],
+
   ignore: [
     'node_modules',
     'build'
